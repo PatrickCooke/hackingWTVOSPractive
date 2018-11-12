@@ -35,6 +35,8 @@ class RemoteImageView: UIImageView {
                 DispatchQueue.main.async {
                     self.image = UIImage(data: imageData)
                 }
+            } else {
+                self.image = UIImage(named: "loading")
             }
         }
     }

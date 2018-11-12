@@ -15,6 +15,8 @@
 		38EABD282199F73F002F2B0F /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EABD272199F73F002F2B0F /* NewsCell.swift */; };
 		38EABD2A219A0202002F2B0F /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EABD29219A0202002F2B0F /* APIKey.swift */; };
 		38EABD2C219A0C38002F2B0F /* RemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EABD2B219A0C38002F2B0F /* RemoteImageView.swift */; };
+		38EABD2E219A3549002F2B0F /* ReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EABD2D219A3549002F2B0F /* ReaderViewController.swift */; };
+		38EABD30219A3687002F2B0F /* wrapper.html in Resources */ = {isa = PBXBuildFile; fileRef = 38EABD2F219A3687002F2B0F /* wrapper.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		38EABD272199F73F002F2B0F /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		38EABD29219A0202002F2B0F /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		38EABD2B219A0C38002F2B0F /* RemoteImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageView.swift; sourceTree = "<group>"; };
+		38EABD2D219A3549002F2B0F /* ReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderViewController.swift; sourceTree = "<group>"; };
+		38EABD2F219A3687002F2B0F /* wrapper.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = wrapper.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +67,11 @@
 				38EABD162199E9D3002F2B0F /* AppDelegate.swift */,
 				38EABD182199E9D3002F2B0F /* ViewController.swift */,
 				38EABD2B219A0C38002F2B0F /* RemoteImageView.swift */,
+				38EABD2D219A3549002F2B0F /* ReaderViewController.swift */,
 				38EABD29219A0202002F2B0F /* APIKey.swift */,
 				38EABD1A2199E9D3002F2B0F /* Main.storyboard */,
 				38EABD272199F73F002F2B0F /* NewsCell.swift */,
+				38EABD2F219A3687002F2B0F /* wrapper.html */,
 				38EABD252199E9F8002F2B0F /* SwiftyJSON.swift */,
 				38EABD1D2199E9D5002F2B0F /* Assets.xcassets */,
 				38EABD1F2199E9D5002F2B0F /* Info.plist */,
@@ -132,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38EABD1E2199E9D5002F2B0F /* Assets.xcassets in Resources */,
+				38EABD30219A3687002F2B0F /* wrapper.html in Resources */,
 				38EABD1C2199E9D3002F2B0F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,6 +152,7 @@
 			files = (
 				38EABD262199E9F8002F2B0F /* SwiftyJSON.swift in Sources */,
 				38EABD2A219A0202002F2B0F /* APIKey.swift in Sources */,
+				38EABD2E219A3549002F2B0F /* ReaderViewController.swift in Sources */,
 				38EABD192199E9D3002F2B0F /* ViewController.swift in Sources */,
 				38EABD282199F73F002F2B0F /* NewsCell.swift in Sources */,
 				38EABD2C219A0C38002F2B0F /* RemoteImageView.swift in Sources */,
