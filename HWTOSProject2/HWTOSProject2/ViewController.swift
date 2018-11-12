@@ -7,16 +7,15 @@
 //
 
 import UIKit
-import GameKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var result: UIImageView!
     
     var activeCells = [IndexPath]()
     var flashSequence = [IndexPath]()
     var levelCounter = 0
+    var flashSpeed = 0.25
     
     let levels = [
         [6, 7, 8], // 3 lights
@@ -34,12 +33,42 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], // 15
     ]
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        createLevel()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 15
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        view.isUserInteractionEnabled = false
+        result.alpha = 1
+        
+        if indexPath == activeCells[0] {
+            result.image = UIImage(named: "correct")
+            levelCounter += 1
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.createLevel()
+            }
+        } else {
+            result.image = UIImage(named: "wrong")
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.gameOver()
+            }
+        }
     }
     
     func createLevel() {
@@ -57,20 +86,47 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             cell?.isHidden = false
         }
         
-        activeCells = (activeCells as NSArray).shuffled() as! [IndexPath]
+        activeCells.shuffle()
         flashSequence = Array(activeCells.dropFirst())
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.flashLight()
+        }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        createLevel()
+    func flashLight() {
+        if let indexPath = flashSequence.popLast() {
+            guard let cell = collectionView.cellForItem(at: indexPath) else { return }
+            guard let imageView = cell.contentView.subviews.first as? UIImageView else { return }
+            
+            imageView.image = UIImage(named: "greenLight")
+            cell.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+            
+            UIView.animate(withDuration: flashSpeed, animations: {
+                cell.transform = .identity
+            }) { _ in
+                imageView.image = UIImage(named: "redLight")
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + self.flashSpeed) {
+                    self.flashLight()
+                }
+            }
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.view.isUserInteractionEnabled = true
+                self.setNeedsFocusUpdate()
+            }
+        }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    func gameOver() {
+        let alert = UIAlertController(title: "Game over!", message: "You made it to level \(levelCounter)", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Start Again", style: .default) { _ in
+            self.levelCounter = 1
+            self.createLevel()
+        }
+        
+        alert.addAction(action)
+        present(alert, animated: true)
     }
-
-
 }
-
