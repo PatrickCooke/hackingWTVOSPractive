@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UICollectionViewController {
 
+    var apiKey = APIKey.shared.guardianKey
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
