@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NPL-9P-6X8">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
+    <dependencies>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item-->
+        <scene sceneID="gts-bs-vUa">
+            <objects>
+                <collectionViewController storyboardIdentifier="News" id="rpL-VX-NQf" customClass="ViewController" customModule="HWTOSProject4" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="hbF-CZ-JxM">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="100" minimumInteritemSpacing="80" id="nxY-zF-SDb">
+                            <size key="itemSize" width="375" height="375"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="80" minY="80" maxX="80" maxY="80"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="ohb-qf-1Yq" customClass="NewsCell" customModule="HWTOSProject4" customModuleProvider="target">
+                                <rect key="frame" x="80" y="80" width="375" height="375"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" adjustsImageWhenAncestorFocused="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bBa-4M-gfv">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a long news story title with lots of text inside" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78q-Co-jvs">
+                                            <rect key="frame" x="0.0" y="225" width="375" height="138"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="78q-Co-jvs" secondAttribute="trailing" id="HFC-rD-t5u"/>
+                                    <constraint firstItem="78q-Co-jvs" firstAttribute="leading" secondItem="ohb-qf-1Yq" secondAttribute="leading" id="PIa-DO-7SA"/>
+                                    <constraint firstAttribute="trailing" secondItem="bBa-4M-gfv" secondAttribute="trailing" id="S9b-EK-CzO"/>
+                                    <constraint firstItem="bBa-4M-gfv" firstAttribute="top" secondItem="ohb-qf-1Yq" secondAttribute="top" id="ScY-JV-Ump"/>
+                                    <constraint firstItem="78q-Co-jvs" firstAttribute="top" secondItem="bBa-4M-gfv" secondAttribute="bottom" constant="15" id="gWW-Ff-eSa"/>
+                                    <constraint firstItem="bBa-4M-gfv" firstAttribute="leading" secondItem="ohb-qf-1Yq" secondAttribute="leading" id="qhu-Ah-AI2"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="bBa-4M-gfv" id="npe-K3-ZNS"/>
+                                    <outlet property="textLabel" destination="78q-Co-jvs" id="xpy-bh-sX8"/>
+                                    <outlet property="unfocusedConstraint" destination="gWW-Ff-eSa" id="Klm-NP-fbV"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="rpL-VX-NQf" id="JTO-nS-mKX"/>
+                            <outlet property="delegate" destination="rpL-VX-NQf" id="uXU-KG-Ko3"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Item" id="ecj-Pq-218"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a9O-sz-8Hx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4225" y="44"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="6yy-aP-Luh">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="NPL-9P-6X8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="And-xu-hcE">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zhk-YQ-QJS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2093" y="44"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="loading" width="375" height="210"/>
+    </resources>
+</document>
