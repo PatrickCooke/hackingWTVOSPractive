@@ -9,7 +9,7 @@
 import UIKit
 
 class NewsCell: UICollectionViewCell {
-    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var imageView: RemoteImageView!
     @IBOutlet var textLabel: UILabel!
     
     @IBOutlet var unfocusedConstraint: NSLayoutConstraint!
