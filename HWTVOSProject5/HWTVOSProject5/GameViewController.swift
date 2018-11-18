@@ -12,7 +12,14 @@ class GameViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 18
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
     }
 
 }

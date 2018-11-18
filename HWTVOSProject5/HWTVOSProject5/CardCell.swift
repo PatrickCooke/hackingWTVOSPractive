@@ -9,5 +9,8 @@
 import UIKit
 
 class CardCell: UICollectionViewCell {
+    @IBOutlet var card: UIImageView!
+    @IBOutlet var contents: UIImageView!
+    @IBOutlet var textLabel: UILabel!
     
 }
