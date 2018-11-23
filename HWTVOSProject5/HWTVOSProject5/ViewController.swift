@@ -12,11 +12,9 @@ class ViewController: UIViewController {
     @IBOutlet var language: UISegmentedControl!
     @IBOutlet var words: UISegmentedControl!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let vc = segue.destination as? GameViewController else { return }
+        vc.targetLanguage = language.titleForSegment(at: language.selectedSegmentIndex)!.lowercased()
+        vc.wordType = words.titleForSegment(at: words.selectedSegmentIndex)!.lowercased()
     }
-
-
 }
-
